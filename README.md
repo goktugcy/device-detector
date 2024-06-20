@@ -10,30 +10,23 @@ Device Detector is a utility class for identifying user browser, operating syste
 - Determines user's device type from the User-Agent header.
 - Retrieves user's preferred language from the Accept-Language header.
 
-## Installation
+## Installation & Usage
 
-1. **Clone the Repository:**
+You can install the package via Composer:
 
-    ```bash
-    git clone https://github.com/goktugcy/device-detector.git
-    ```
+```bash
+composer require goktugceyhan/device-detector
+```
 
 2. **Include the Class in Your Laravel Project:**
 
-    Copy the `Detector.php` file to your Laravel project's `app/Utils` directory.
+   ` use Goktugceyhan\DeviceDetector\Detector; `
 
-3. **Use the Detector Class:**
-
-    ```php
-    use App\Utils\Detector;
-    ```
-
-## Usage
 
 ### Get User Browser
 
 ```php
-$browser = Detector::getUserBrowser();
+browser = Detector::getUserBrowser();
 echo $browser; // Outputs the user's browser
 ```
 
