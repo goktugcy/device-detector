@@ -1,5 +1,3 @@
-Here's a README file based on the provided PHP package information:
-
 ```markdown
 # Device Detector
 
@@ -100,4 +98,3 @@ Retrieves all user information (browser, OS, device, language) in an associative
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
