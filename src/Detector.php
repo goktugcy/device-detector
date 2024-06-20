@@ -325,17 +325,23 @@ class Detector
     }
 
     /**
-     * Retrieves all user information in an associative array.
+     * Retrieves the user's browser, operating system, device, and language.
      *
-     * @return array Associative array of user information.
+     * @return string The user's browser, operating system, device, and language.
      */
     public static function getUserInfo()
     {
-        return [
+        $userInfo = [
             'browser' => self::getUserBrowser(),
             'os' => self::getUserOS(),
             'device' => self::getUserDevice(),
             'language' => self::getUserLanguage(),
         ];
+
+        $filteredUserInfo = array_filter($userInfo, function ($value) {
+            return $value !== 'no_data_found';
+        });
+
+        return implode(' | ', $filteredUserInfo);
     }
 }
