@@ -1,4 +1,4 @@
-```markdown
+
 # Device Detector
 
 Device Detector is a utility class for identifying user browser, operating system, device type, and preferred language based on HTTP headers. It is designed to work with Laravel framework.
