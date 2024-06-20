@@ -1,0 +1,19 @@
+{
+    "name": "goktugceyhan/device-detector",
+    "description": "Simple browser and os detection",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Goktugceyhan\\DeviceDetector\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Göktuğ Ceyhan",
+            "email": "goktugceyhan@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
