@@ -101,5 +101,3 @@ Retrieves all user information (browser, OS, device, language) in an associative
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ```
-
-This README provides a comprehensive overview of the `Device Detector` class, including its features, installation instructions, usage examples, method descriptions, and contribution guidelines.
