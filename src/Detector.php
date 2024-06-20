@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Utils;
+namespace Goktugceyhan\DeviceDetector;
 
 use Illuminate\Http\Request;
 
