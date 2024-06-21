@@ -78,7 +78,7 @@ Retrieves the user's preferred language based on the `Accept-Language` header.
 
 ### `getUserInfo()`
 
-Retrieves all user information (browser, OS, device, language) in an associative array.
+Retrieves all user information (browser, OS, device, language) as a concatenated string. Filters out any information that is not available.
 
 ## Contributing
 
