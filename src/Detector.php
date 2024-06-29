@@ -358,6 +358,7 @@ class Detector
             'os' => self::getUserOS(),
             'device' => self::getUserDevice(),
             'language' => self::getUserLanguage(),
+            'ip' => self::getUserIp(),
         ];
 
         $filteredUserInfo = array_filter($userInfo, function ($value) {
