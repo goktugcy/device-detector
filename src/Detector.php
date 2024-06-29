@@ -2,8 +2,6 @@
 
 namespace Goktugceyhan\DeviceDetector;
 
-use Illuminate\Http\Request;
-
 class Detector
 {
     // =======================================
