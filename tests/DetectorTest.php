@@ -7,7 +7,7 @@ class DetectorTest extends TestCase
 {
     // protected function setUp(): void
     // {
-        
+
     // }
 
     public function testGetUserBrowser()
@@ -59,9 +59,10 @@ class DetectorTest extends TestCase
     {
         $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3';
         $_SERVER['HTTP_ACCEPT_LANGUAGE'] = 'en-US,en;q=0.9,fr;q=0.8';
+        $_SERVER['REMOTE_ADDR'] = '123.123.123.123';
 
         $userInfo = Detector::getUserInfo();
-        $expected = 'Google Chrome | Windows 10 | PC | English';
+        $expected = 'Google Chrome | Windows 10 | PC | English | 123.123.123.123';
 
         $this->assertEquals($expected, $userInfo);
         echo $userInfo . "\n";
