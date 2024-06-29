@@ -2,8 +2,6 @@
 
 namespace Goktugceyhan\DeviceDetector;
 
-use Illuminate\Http\Request;
-
 class Detector
 {
     // =======================================
@@ -272,7 +270,7 @@ class Detector
      */
     public static function getUserBrowser()
     {
-        $userAgent = request()->header('User-Agent') ?? 'no_data';
+        $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? 'no_data';
         return self::searchArray(self::$browsers, $userAgent);
     }
 
@@ -283,7 +281,7 @@ class Detector
      */
     public static function getUserOS()
     {
-        $userAgent = request()->header('User-Agent') ?? 'no_data';
+        $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? 'no_data';
         return self::searchArray(self::$operatingSystems, $userAgent);
     }
 
@@ -294,7 +292,7 @@ class Detector
      */
     public static function getUserDevice()
     {
-        $userAgent = request()->header('User-Agent') ?? 'no_data';
+        $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? 'no_data';
         return self::searchArray(self::$devices, $userAgent);
     }
 
@@ -305,7 +303,7 @@ class Detector
      */
     public static function getUserLanguage()
     {
-        $userLang = request()->header('Accept-Language') ?? 'no_data';
+        $userLang = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? 'no_data';
 
         if ($userLang === 'no_data') {
             return 'no_data_found';
@@ -322,6 +320,30 @@ class Detector
             }
         }
         return 'no_data_found';
+    }
+
+    /**
+     * Retrieves the user's IP address.
+     *
+     * @return string The user's IP address.
+     */
+
+    public static function getUserIp()
+    {
+        $ip = '127.0.0.1';
+
+        if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ipArray = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+            $ip = trim(end($ipArray));
+        } elseif (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_REAL_IP'])) {
+            $ip = $_SERVER['HTTP_X_REAL_IP'];
+        } elseif (!empty($_SERVER['REMOTE_ADDR'])) {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+
+        return $ip ?? 'no_data_found';
     }
 
     /**
