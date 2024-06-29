@@ -272,7 +272,7 @@ class Detector
      */
     public static function getUserBrowser()
     {
-        $userAgent = Request::header('User-Agent') ?? 'no_data';
+        $userAgent = request()->header('User-Agent') ?? 'no_data';
         return self::searchArray(self::$browsers, $userAgent);
     }
 
@@ -283,7 +283,7 @@ class Detector
      */
     public static function getUserOS()
     {
-        $userAgent = Request::header('User-Agent') ?? 'no_data';
+        $userAgent = request()->header('User-Agent') ?? 'no_data';
         return self::searchArray(self::$operatingSystems, $userAgent);
     }
 
@@ -294,7 +294,7 @@ class Detector
      */
     public static function getUserDevice()
     {
-        $userAgent = Request::header('User-Agent') ?? 'no_data';
+        $userAgent = request()->header('User-Agent') ?? 'no_data';
         return self::searchArray(self::$devices, $userAgent);
     }
 
@@ -305,7 +305,7 @@ class Detector
      */
     public static function getUserLanguage()
     {
-        $userLang = Request::header('Accept-Language') ?? 'no_data';
+        $userLang = request()->header('Accept-Language') ?? 'no_data';
 
         if ($userLang === 'no_data') {
             return 'no_data_found';
