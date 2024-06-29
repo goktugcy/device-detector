@@ -2,6 +2,8 @@
 
 namespace Goktugceyhan\DeviceDetector;
 
+use Illuminate\Http\Request;
+
 class Detector
 {
     // =======================================
@@ -270,7 +272,7 @@ class Detector
      */
     public static function getUserBrowser()
     {
-        $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? 'no_data';
+        $userAgent = Request::header('User-Agent') ?? 'no_data';
         return self::searchArray(self::$browsers, $userAgent);
     }
 
@@ -281,7 +283,7 @@ class Detector
      */
     public static function getUserOS()
     {
-        $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? 'no_data';
+        $userAgent = Request::header('User-Agent') ?? 'no_data';
         return self::searchArray(self::$operatingSystems, $userAgent);
     }
 
@@ -292,7 +294,7 @@ class Detector
      */
     public static function getUserDevice()
     {
-        $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? 'no_data';
+        $userAgent = Request::header('User-Agent') ?? 'no_data';
         return self::searchArray(self::$devices, $userAgent);
     }
 
@@ -303,7 +305,7 @@ class Detector
      */
     public static function getUserLanguage()
     {
-        $userLang = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? 'no_data';
+        $userLang = Request::header('Accept-Language') ?? 'no_data';
 
         if ($userLang === 'no_data') {
             return 'no_data_found';
